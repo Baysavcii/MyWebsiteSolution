@@ -2,19 +2,14 @@
 using Microsoft.Extensions.DependencyInjection;
 using MyWebsite.AuthAPI.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantApp.Common.Models
+namespace MyWebsite.AuthAPI.Data
 {
     public class SeedData
     {
-        public static async Task Initialize(IServiceProvider serviceProvider, UserManager<ApplicationUser> userManager)
+        public static async Task Initialize(IServiceProvider serviceProvider, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
             if (!await roleManager.RoleExistsAsync("Admin"))
             {
                 await roleManager.CreateAsync(new IdentityRole("Admin"));
@@ -23,7 +18,7 @@ namespace RestaurantApp.Common.Models
             {
                 await roleManager.CreateAsync(new IdentityRole("User"));
             }
-            
+
             string adminEmail = "admin@domain.com";
             string adminPassword = "Admin123!";
             if (await userManager.FindByEmailAsync(adminEmail) == null)
@@ -61,7 +56,6 @@ namespace RestaurantApp.Common.Models
                     await userManager.AddToRoleAsync(normalUser, "User");
                 }
             }
-
         }
     }
 }
