@@ -1,0 +1,6 @@
+@MyWebsite.FileAPI_HostAddress = http://localhost:5084
+
+GET {{MyWebsite.FileAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
