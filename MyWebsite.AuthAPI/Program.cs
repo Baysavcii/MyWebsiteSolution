@@ -49,9 +49,12 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<ApplicationDbContext>();
 
     try
     {
+        dbContext.Database.EnsureCreated();
+
         var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         await SeedData.Initialize(services, userManager, roleManager);
@@ -59,10 +62,9 @@ using (var scope = app.Services.CreateScope())
     catch (Exception ex)
     {
         var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while seeding data to database");
+        logger.LogError(ex, "An error occurred while initializing the database.");
     }
 }
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
