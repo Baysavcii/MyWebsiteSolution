@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_HeadComponentPartial")
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+	@await Component.InvokeAsync("_NavbarComponentPartial")
+	@await Component.InvokeAsync("_HeroComponentPartial")
+	@await Component.InvokeAsync("_CounterComponenPartial")
+	@await Component.InvokeAsync("_AboutComponentPartial")
+	@await Component.InvokeAsync("_HireComponentPartial")
+	@await Component.InvokeAsync("_ProjectsComponentPartial")
+	@await Component.InvokeAsync("_BlogComponentPartial")
+	@await Component.InvokeAsync("_ContactComponentPartial")
+	@await Component.InvokeAsync("_FooterComponentPartial")
+
+</body>
+</html>

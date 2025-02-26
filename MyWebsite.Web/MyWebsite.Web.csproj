@@ -6,4 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\clyde-master\.DS_Store" />
+    <None Include="wwwroot\clyde-master\css\.DS_Store" />
+    <None Include="wwwroot\clyde-master\fonts\.DS_Store" />
+    <None Include="wwwroot\clyde-master\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\clyde-master\images\.DS_Store" />
+    <None Include="wwwroot\clyde-master\js\.DS_Store" />
+    <None Include="wwwroot\clyde-master\scss\.DS_Store" />
+    <None Include="wwwroot\clyde-master\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
 </Project>
