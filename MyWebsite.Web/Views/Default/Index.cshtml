@@ -1,0 +1,15 @@
+﻿@{
+    var featureTask = Component.InvokeAsync("_FeatureComponentPartial");
+    var aboutTask = Component.InvokeAsync("_AboutComponentPartial");
+    var blogTask = Component.InvokeAsync("_BlogComponentPartial");
+    var hireTask = Component.InvokeAsync("_HireComponentPartial");
+    var myProjectsTask = Component.InvokeAsync("_MyProjectsComponentPartial");
+    var contactTask = Component.InvokeAsync("_ContactComponentPartial");
+}
+
+@await featureTask
+@await aboutTask
+@await blogTask
+@await hireTask
+@await myProjectsTask
+@await contactTask

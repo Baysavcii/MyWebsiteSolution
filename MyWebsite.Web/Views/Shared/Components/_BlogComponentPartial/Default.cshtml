@@ -1,0 +1,37 @@
+﻿@model List<BlogViewModel>
+
+<section class="ftco-section ftco-blog" id="blog-section">
+    <div class="container-fluid px-md-4">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Blog Yazılarım</h2>
+                <p>Bilgilendirici ve güncel blog yazılarımı buradan okuyabilirsiniz.</p>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var blog in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="blog-post shadow ftco-animate">
+                            <a href="@Url.Action("Details", "Blog", new { id = blog.Id })">
+                                <img src="@Url.Content(blog.ImageUrl)" alt="@blog.Title" class="img-fluid" />
+                            </a>
+                            <div class="text text-center p-4">
+                                <h3><a href="@Url.Action("Details", "Blog", new { id = blog.Id })">@blog.Title</a></h3>
+                                <p>@blog.Content</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-md-12 text-center">
+                    <p>Blog yazısı bulunamadı.</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
