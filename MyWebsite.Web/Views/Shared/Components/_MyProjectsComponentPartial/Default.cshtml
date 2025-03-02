@@ -1,0 +1,35 @@
+﻿@model List<MyWebsite.Web.Models.MyProjectsViewModel>
+
+<section class="ftco-section ftco-project" id="projects-section">
+    <div class="container-fluid px-md-4">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Projelerim</h2>
+                <p>Görsellere tıklayarak projelerim hakkında detaylı bilgiye sahip olabilirsiniz.</p>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var project in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image:url('@Url.Content(project.Image)');">
+                            <div class="overlay"></div>
+                            <div class="text text-center p-4">
+                                <h3><a href="#">@project.ImageDescription</a></h3>
+                                <span>@project.ImageName</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-md-12 text-center">
+                    <p>Projeler bulunamadı.</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

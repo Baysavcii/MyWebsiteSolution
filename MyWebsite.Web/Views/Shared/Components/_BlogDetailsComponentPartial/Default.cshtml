@@ -1,0 +1,12 @@
+﻿@model List<BlogDetailsViewModel>
+
+@foreach (var blog in Model)
+{
+    <div class="blog-post">
+        <a href="@Url.Action("Details", "BlogDetails", new { id = blog.Id })">
+            <img src="@blog.Image" alt="@blog.Title" />
+        </a>
+        <h3>@blog.Title</h3>
+        <p>@blog.Content</p>
+    </div>
+}
